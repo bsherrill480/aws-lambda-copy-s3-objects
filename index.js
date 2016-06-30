@@ -74,7 +74,7 @@ function processRecord(record, callback) {
             s3.copyObject({
                 Bucket: targetBucket,
                 Key: targetKey,
-                
+                ACL: 'public-read',
                 CopySource: encodeURIComponent(srcBucket + '/' + srcKey),
                 MetadataDirective: 'COPY'
             }, function (err, data) {
